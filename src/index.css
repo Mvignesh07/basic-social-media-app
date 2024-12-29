@@ -1,13 +1,296 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* General Styles */
+html, body {
+  height: 100%; /* Ensure the body takes full height of the viewport */
+  margin: 0; /* Remove default margin */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Set flex direction to column */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  display: flex; /* Flex container for the app */
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure App fills at least viewport height */
+}
+
+.main-content {
+  flex: 1; /* Allow main content to grow while footer stays at bottom */
+}
+
+/* Header Styling */
+.Header {
+  text-align: center; /* Center align text */
+  font-family: Arial, Helvetica, sans-serif; /* Set font family */
+  font-size: larger; /* Increase font size */
+  font-weight: bold; /* Make the header text bold */
+  color: black; /* Set text color to black */
+  background-color: aquamarine; /* Set background color */
+  padding: 1.5% 1.5%; /* Add padding to header */
+}
+
+/* Navigation Bar */
+.Nav {
+  background-color: #333; /* Set dark background color for nav */
+  padding: 10px 0; /* Vertical padding */
+  display: flex; /* Use flexbox for nav layout */
+  justify-content: center; /* Center the menu */
+  align-items: center; /* Vertically align items */
+}
+
+ul {
+  list-style-type: none; /* Remove bullet points from list */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Align menu items in a row */
+  gap: 20px; /* Add space between menu items */
+}
+
+li {
+  font-weight: bold; /* Make menu items bold */
+  font-size: 85%; /* Reduce font size for a smaller look */
+  background-color: aliceblue; /* Set background color */
+  border-radius: 8px; /* Rounded corners for menu items */
+  padding: 8px 12px; /* Adjust padding for size */
+  text-align: center; /* Center text */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+li:hover {
+  background-color: aquamarine; /* Change background on hover */
+  color: black; /* Change text color on hover */
+}
+
+.searchForm {
+  margin-right: auto; /* Align search bar to the left */
+  margin-left: 20px; /* Add left margin */
+  display: flex; /* Use flexbox to align search bar */
+}
+
+#search {
+  width: 150px; /* Set width of search box */
+  height: 28px; /* Set height of search box */
+  border-radius: 5px; /* Rounded corners for input */
+}
+
+/* Add margin to the last menu item */
+ul li:last-child {
+  margin-right: 30px; /* Adds space after the last menu item */
+}
+
+/* Responsive Design */
+
+/* Large Screens (min-width: 740px) */
+@media screen and (min-width: 740px) {
+  ul {
+    gap: 30px; /* Increase spacing between menu items for larger screens */
+  }
+  
+  li {
+    font-size: 120%; /* Increase font size for larger screens */
+    padding: 12px 20px; /* Adjust padding for larger screens */
+  }
+
+  #search {
+    width: 200px; /* Wider search box for larger screens */
+  }
+}
+
+/* Medium Screens (max-width: 740px and min-width: 500px) */
+@media screen and (max-width: 740px) and (min-width: 500px) {
+  ul {
+    gap: 20px; /* Increase spacing between menu items */
+  }
+  
+  li {
+    font-size: 90%; /* Increase font size for menu items */
+    padding: 8px 12px; /* Add more padding for better spacing */
+  }
+
+  #search {
+    width: 150px; /* Increase width of the search box */
+    height: 30px; /* Slightly increase height of the search box */
+    font-size: 1rem; /* Ensure the text size inside the search box is appropriate */
+  }
+
+  .Nav {
+    padding: 15px 0; /* Add more padding for the navbar */
+  }
+}
+
+/* Small Screens (max-width: 500px) */
+@media screen and (max-width: 500px) {
+  .Nav {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: center; /* Center nav items */
+  }
+
+  .searchForm {
+    width: 40%; /* Set search form width to 70% */
+    margin-bottom: 10px; /* Add space below search bar */
+    align-self: flex-start; /* Align search bar to the left */
+  }
+
+  ul {
+    display: flex; /* Ensure menu items are horizontal */
+    justify-content: center; /* Center menu items */
+    gap: 10px; /* Add space between menu items */
+    width: 100%; /* Full width for alignment */
+  }
+
+  li {
+    font-size: 75%; /* Smaller font size for small screens */
+    padding: 5px 8px; /* Reduced padding */
+    text-align: center;
+  }
+
+  #search {
+    width: 100%; /* Full width for search box */
+    height: 24px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Post Styles */
+.post {
+  border: 2px solid #333; /* Lighter border with thinner width */
+  border-radius: 10px; /* Rounded corners for smoother look */
+  margin: 2%; /* Add margin around each post */
+  padding: 15px; /* Add padding inside the post */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add soft shadow */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+  background-color: #fff; /* White background inside the post */
+}
+
+.post:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* First Post (to prevent margin on top) */
+.post:first-child {
+  margin-top: 0; /* Remove margin on top for the first post */
+}
+
+.postDate {
+  font-size: 0.75rem; /* Smaller font size for post date */
+  margin-top: 0.25rem; /* Add space above date */
+}
+
+.postBody {
+  margin: 1rem 0; /* Add margin to the post body */
+}
+
+.newPostForm {
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  margin: 2rem; /* Add margin around the form */
+}
+
+.newPostForm label {
+  margin: 0 0 2vh 0; /* Add margin to label */
+}
+
+.newPostForm input, textarea {
+  width: 75%; /* Set input width */
+  padding: 0.5rem 0.8rem; /* Add padding inside the inputs */
+  border: 0; /* Remove border */
+  border-radius: 5px; /* Rounded corners for input fields */
+  font-size: 20px; /* Set font size */
+  background-color: cornsilk; /* Set background color */
+}
+
+.newPostForm textarea {
+  height: 10vh; /* Set height of textarea */
+  margin-bottom: 5%; /* Add margin at the bottom */
+}
+
+/* Submit Button */
+.PostSubmitBtn {
+  color: white; /* White text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  border: none; /* Remove border */
+  padding: 12px 24px; /* Padding for button */
+  background-color: #4CAF50; /* Green button background */
+  text-align: center; /* Center text inside button */
+  display: inline-block; /* Inline-block display for the button */
+  font-size: 16px; /* Set font size */
+  border-radius: 30px; /* Rounded corners for button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.PostSubmitBtn:hover {
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.PostSubmitBtn:active {
+  background-color: #3e8e41; /* Even darker green on click */
+  transform: translateY(2px); /* Subtle press effect */
+}
+
+/* Delete Button */
+.deletePostBtn {
+  color: white; /* White text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  border: none; /* Remove border */
+  padding: 12px 24px; /* Padding for button */
+  background-color: #f44336; /* Red button background */
+  text-align: center; /* Center text inside button */
+  display: inline-block; /* Inline-block display for the button */
+  font-size: 16px; /* Set font size */
+  border-radius: 30px; /* Rounded corners for button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+  margin: 0 auto; /* Center the button */
+  display: block; /* Allow centering with margin */
+  margin-bottom: 1rem; /* Add margin below the button */
+}
+
+.deletePostBtn:hover {
+  background-color: #e53935; /* Darker red on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.deletePostBtn:active {
+  background-color: #c62828; /* Even darker red on click */
+  transform: translateY(2px); /* Subtle press effect */
+}
+
+/* Footer Styling */
+.footer {
+  text-align: center; /* Center align text */
+  color: beige; /* Set text color */
+  background-color: #333; /* Dark background color */
+  padding: 1% 0; /* Add padding to footer */
+  font-size: larger; /* Increase font size */
+  width: 100%; /* Full width for footer */
+}
+
+/* About Page */
+.About {
+  background-color: #f4f4f4; /* Set background color */
+  padding: 1px 20px; /* Reduce top and bottom padding, keep left and right */
+  margin: 3% auto; /* Center the content and add margin */
+  border-radius: 8px; /* Rounded corners */
+  width: 80%; /* Set width */
+  max-width: 800px; /* Limit max width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add soft shadow */
+}
+
+.About p {
+  font-size: 1.2rem; /* Set font size */
+  line-height: 1.6; /* Set line height */
+  color: #333; /* Set text color */
+  margin: 1.5rem 0; /* Add margin */
+}
+
+.About b {
+  font-weight: bold; /* Bold text */
+  color: #007bff; /* Set text color */
+}
+
+.About br {
+  margin-top: 1rem; /* Add space after line breaks */
 }
