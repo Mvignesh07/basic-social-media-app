@@ -68,7 +68,7 @@ const handleDelete = (id) => {
 
   return (
     <div className="App">
-      <Header title="Social Media App"/>
+      <Header title="Simple Social Media App"/>
       <Nav 
         search={search}
         setSearch={setSearch}

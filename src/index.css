@@ -121,25 +121,30 @@ ul li:last-child {
   .Nav {
     flex-direction: column; /* Stack nav items vertically */
     align-items: center; /* Center nav items */
+    justify-content: center; /* Center items along the cross axis */
+    width: 100%;
   }
 
   .searchForm {
-    width: 40%; /* Set search form width to 70% */
+    width: 40%; /* Set search form width to 40% */
     margin-bottom: 10px; /* Add space below search bar */
-    align-self: flex-start; /* Align search bar to the left */
+    align-self: center; /* Align search bar to the center */
   }
 
-  ul {
+  .Nav ul { 
     display: flex; /* Ensure menu items are horizontal */
-    justify-content: center; /* Center menu items */
-    gap: 10px; /* Add space between menu items */
+    justify-content: center; /* Center menu items horizontally */
+    gap: 20px; /* Add space between menu items */
     width: 100%; /* Full width for alignment */
+    margin-left: 8%; /* Automatically adjust left and right margins for centering */
+    padding: 0; /* Remove any default padding */
   }
+  
 
   li {
     font-size: 75%; /* Smaller font size for small screens */
     padding: 5px 8px; /* Reduced padding */
-    text-align: center;
+    text-align: center; /* Ensure text is centered */
   }
 
   #search {
