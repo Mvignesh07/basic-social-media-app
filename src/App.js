@@ -72,8 +72,9 @@ const handleDelete = (id) => {
       <Nav 
         search={search}
         setSearch={setSearch}
-        showSearch={location.pathname === '/basic-social-media-app'} // Show search only on Home
+        showSearch={location.pathname === '/basic-social-media-app/' || location.pathname === '/basic-social-media-app'} // Show search only on Home
       />
+
       <br></br><br></br>
       <div className="main-content">
         <Routes>

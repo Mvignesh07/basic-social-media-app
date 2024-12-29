@@ -1,20 +1,20 @@
 .App {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Use Flexbox layout to arrange child elements */
+  flex-direction: column; /* Stack child elements vertically */
   min-height: 100vh; /* Make the App fill at least the viewport height */
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34; /* Set background color to a dark shade */
+  min-height: 100vh; /* Ensure the header takes up at least the full viewport height */
+  display: flex; /* Use Flexbox layout for the header */
+  flex-direction: column; /* Stack content vertically in the header */
+  align-items: center; /* Center the content horizontally */
+  justify-content: center; /* Center the content vertically */
+  font-size: calc(10px + 2vmin); /* Set dynamic font size based on viewport size */
+  color: white; /* Set text color to white */
 }
 
 .App-link {
-  color: #61dafb;
+  color: #61dafb; /* Set link color to a light blue shade */
 }
