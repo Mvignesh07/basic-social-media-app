@@ -120,7 +120,6 @@ function App() {
               path=':id'
               element={<PostPage posts={posts} handleDelete={handleDelete} handleEdit={handleEdit} />}
             />
-
             <Route 
               path=':id/edit'
               element={
