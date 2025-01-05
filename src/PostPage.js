@@ -1,17 +1,22 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 
-const PostPage = ({posts, handleDelete}) => {
+const PostPage = ({posts, handleDelete, handleEdit}) => {
     const {id} = useParams();
     const post = posts.find(post => (post.id).toString() === id);
     return (
         <main className='PostPage'>
+            <br />
             <article className='post'>
                 {post &&
                     <div className='PostPageContent'>
                         <h2 style={{color:"blue"}}>{post.title}</h2>
                         <p className='postDate'>{post.date}</p>
                         <p className='postBody'>{post.body}</p>
+                        <br />
+                        <button className='editPostBtn' onClick={()=>handleEdit(post.id)}>
+                            Edit Post
+                        </button>
                         <button className='deletePostBtn' onClick={()=>handleDelete(post.id)}>
                             Delete Post
                         </button>

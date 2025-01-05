@@ -5,24 +5,29 @@ const NewPost = ({
 }) => {
   return (
     <main className='NewPost'>
-        <marquee direction="right" height="100px"><h2 style={{color:"blue"}}>Post your content here!</h2></marquee>
+        <marquee direction="right" height="100px">
+            <h2 className="formTitle">
+                {postTitle ? "Edit your post here!" : "Create a new post here!"}
+            </h2>
+        </marquee>
+        <br />
         <form className='newPostForm' onSubmit={handleSubmit}>
-            
             <input 
                 id='postTitle'
                 type='text'
                 required
-                placeholder='Title'
+                placeholder='Post Title'
                 value={postTitle}
                 onChange={(e) => setPostTitle(e.target.value)}
-            /><br></br><br></br><br></br>
-            
+                className="inputField"
+            />
             <textarea
                 id='postBody'
                 required
-                placeholder='Type your post...'
+                placeholder='Share your thoughts...'
                 value={postBody}
                 onChange={(e) => setPostBody(e.target.value)}
+                className="inputField"
             ></textarea><br></br>
             <button className='PostSubmitBtn' type='submit'>SUBMIT</button>
         </form>
@@ -30,4 +35,4 @@ const NewPost = ({
   )
 }
 
-export default NewPost
+export default NewPost;
