@@ -1,7 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import UseNavigateOnRefresh from './UseNavigateOnRefresh';
 
 const PostPage = ({posts, handleDelete, handleEdit}) => {
+    UseNavigateOnRefresh();
     const {id} = useParams();
     const post = posts.find(post => (post.id).toString() === id);
     return (

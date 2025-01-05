@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import UseNavigateOnRefresh from './UseNavigateOnRefresh';
 
 const About = () => {
+  UseNavigateOnRefresh();
   return (
     <div className='About'>
       <p style={{ margin: "10% 0", fontSize: "large" }}>
