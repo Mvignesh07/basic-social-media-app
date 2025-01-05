@@ -59,13 +59,13 @@ function App() {
     setPosts(allPosts);
     setPostTitle("");
     setPostBody("");
-    navigate('/basic-social-media-app');
+    navigate('/');
   };
 
   const handleDelete = (id) => {
     const postList = posts.filter((post) => post.id !== id);
     setPosts(postList);
-    navigate('/basic-social-media-app');
+    navigate('/');
   };
 
   const handleEdit = (id) => {
@@ -74,7 +74,7 @@ function App() {
       setEditPostId(post.id);
       setEditPostTitle(post.title);
       setEditPostBody(post.body);
-      navigate(`/basic-social-media-app/post/${id}/edit`);
+      navigate(`/post/${id}/edit`);
     }
   };
 
@@ -90,7 +90,7 @@ function App() {
     setEditPostId(null);
     setEditPostTitle("");
     setEditPostBody("");
-    navigate('/basic-social-media-app');
+    navigate('/');
   };
 
   return (
@@ -99,14 +99,14 @@ function App() {
       <Nav 
         search={search}
         setSearch={setSearch}
-        showSearch={location.pathname === '/basic-social-media-app/' || location.pathname === '/basic-social-media-app'} // Show search only on Home
+        showSearch={location.pathname === '/'} // Show search only on Home
       />
 
       <br /><br />
       <div className="main-content">
         <Routes>
-          <Route path='/basic-social-media-app' element={<Home posts={searchResult} />} />
-          <Route path='/basic-social-media-app/post'>
+          <Route path='/' element={<Home posts={searchResult} />} />
+          <Route path='/post'>
             <Route index element={
               <NewPost 
                 handleSubmit={handleSubmit}
@@ -133,7 +133,7 @@ function App() {
               }
             />
           </Route>
-          <Route path='/basic-social-media-app/about' element={<About />} />
+          <Route path='/about' element={<About />} />
           <Route path='*' element={<Missing />} />
         </Routes>
       </div><br />

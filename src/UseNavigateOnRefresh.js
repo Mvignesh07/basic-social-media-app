@@ -9,7 +9,7 @@ const UseNavigateOnRefresh = () => {
       if (!event.persisted) { // Page is not loaded from the back-forward cache
         const navigationEntries = performance.getEntriesByType('navigation');
         if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
-          navigate('/basic-social-media-app');
+          navigate('/');
         }
       }
     };

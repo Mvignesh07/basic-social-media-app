@@ -23,9 +23,9 @@ const linkStyle = {
         )}
         <br></br>
         <ul>
-            <li><Link to="/basic-social-media-app" style={linkStyle}>Home</Link></li>
-            <li><Link to="/basic-social-media-app/post" style={linkStyle}>Post</Link></li>
-            <li><Link to="/basic-social-media-app/about" style={linkStyle}>About Me</Link></li>
+            <li><Link to="/" style={linkStyle}>Home</Link></li>
+            <li><Link to="/post" style={linkStyle}>Post</Link></li>
+            <li><Link to="/about" style={linkStyle}>About Me</Link></li>
         </ul>
     </nav>
   );
