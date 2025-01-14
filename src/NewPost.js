@@ -2,14 +2,14 @@ import React from 'react';
 import UseNavigateOnRefresh from './UseNavigateOnRefresh';
 
 const NewPost = ({
-    handleSubmit, postTitle, setPostTitle, postBody, setPostBody
+    handleSubmit, postTitle, setPostTitle, postBody, setPostBody, isEditing
 }) => {
     UseNavigateOnRefresh();
     return (
         <main className='NewPost'>
             <marquee direction="right" height="100px">
                 <h2 className="formTitle">
-                    {postTitle ? "Edit your post here!" : "Create a new post here!"}
+                    {isEditing ? "Edit your post here!" : "Create a new post here!"}
                 </h2>
             </marquee>
             <br />
@@ -22,6 +22,7 @@ const NewPost = ({
                     value={postTitle}
                     onChange={(e) => setPostTitle(e.target.value)}
                     className="inputField"
+                    autoComplete="off"
                 />
                 <textarea
                     id='postBody'

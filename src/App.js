@@ -114,6 +114,7 @@ function App() {
                 setPostTitle={setPostTitle}
                 postBody={postBody}
                 setPostBody={setPostBody}
+                isEditing={false}
               />
             } />
             <Route
@@ -129,6 +130,7 @@ function App() {
                   setPostTitle={setEditPostTitle}
                   postBody={editPostBody}
                   setPostBody={setEditPostBody}
+                  isEditing={true}
                 />
               }
             />
