@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 
 function App() {
-  const [posts, setPosts] = useState([
+  const initialPosts = [
     {
       id: 1,
       title: "My 1st Post",
@@ -30,7 +30,12 @@ function App() {
       date: "August 31, 2021",
       body: "Started new journey"
     }
-  ]);
+  ];
+  
+  const [posts, setPosts] = useState(() => {
+    const storedPosts = JSON.parse(localStorage.getItem('posts'));
+    return storedPosts && storedPosts.length ? storedPosts : initialPosts;
+  });  
 
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -50,8 +55,16 @@ function App() {
     setSearchResult(filteredResult.reverse());
   }, [posts, search]);
 
+  useEffect(() => {
+    localStorage.setItem('posts', JSON.stringify(posts));
+  }, [posts]);  
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!postTitle.trim() || !postBody.trim()) {
+      alert("Title and body cannot be empty.");
+      return;
+    }
     const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
     const datetime = format(new Date(), 'MMMM dd, yyyy');
     const newPost = { id, title: postTitle, date: datetime, body: postBody };
